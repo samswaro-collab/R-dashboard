@@ -791,7 +791,25 @@
             <div class="sidebar-acq-meta">Acquisition Planning Data<br>FOCI Mitigation Strategy</div>
         </div>
 
-        <div class="sidebar-footer">
+        <!-- BEAKON brand mark in sidebar -->
+        <div style="padding:12px 16px 6px;border-top:1px solid rgba(255,255,255,0.06);margin-top:16px;display:flex;align-items:center;gap:8px;">
+            <div style="width:24px;height:24px;background:linear-gradient(135deg,#00d4c8,#0077b5);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="14" height="14" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M45 18 L32 8" stroke="#fff" stroke-width="4" opacity="0.7" stroke-linecap="round"/>
+                  <path d="M45 18 L45 5" stroke="#fff" stroke-width="4" opacity="0.9" stroke-linecap="round"/>
+                  <path d="M45 18 L58 8" stroke="#fff" stroke-width="4" opacity="0.7" stroke-linecap="round"/>
+                  <rect x="38" y="18" width="14" height="9" rx="2" fill="#fff"/>
+                  <rect x="35" y="27" width="20" height="3" rx="1.5" fill="#fff" opacity="0.85"/>
+                  <path d="M38 30 L34 68 L56 68 L52 30 Z" fill="#fff" opacity="0.2" stroke="#fff" stroke-width="2.5"/>
+                  <rect x="30" y="68" width="30" height="5" rx="2.5" fill="#fff" opacity="0.9"/>
+                </svg>
+            </div>
+            <div>
+                <div style="font-size:11px;font-weight:900;letter-spacing:2.5px;color:rgba(255,255,255,0.75);">BEAKON</div>
+                <div style="font-size:8px;color:rgba(255,255,255,0.35);letter-spacing:1px;">Signal to Signed.</div>
+            </div>
+        </div>
+        <div class="sidebar-footer" style="border-top:none;margin-top:0;padding-top:6px;">
             $80.7B Revenue · $268B Backlog<br>
             <span style="font-size:10px;">Data refreshed: April 2025</span>
         </div>
@@ -822,10 +840,18 @@
                     <div style="font-size:9px;opacity:0.6;margin-top:2px;letter-spacing:0.3px;">Auto-refreshes every 5 days</div>
                 </div>
             </div>
-            <!-- Back to BEAKON -->
-            <a href="https://www.salesbeakon.com" style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 10px;border:1px solid rgba(255,255,255,0.25);border-radius:7px;text-decoration:none;color:rgba(255,255,255,0.75);font-size:10px;font-weight:700;letter-spacing:.5px;white-space:nowrap;margin-right:8px;" onmouseover="this.style.background='rgba(255,255,255,0.12)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='rgba(255,255,255,0.75)'">
-                <span style="font-size:14px;">&#8962;</span>
-                <span>BEAKON Hub</span>
+            <!-- BEAKON Sign Out -->
+            <a href="https://www.salesbeakon.com" style="display:flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid rgba(255,255,255,0.22);border-radius:8px;text-decoration:none;color:rgba(255,255,255,0.82);font-size:11px;font-weight:700;letter-spacing:.5px;white-space:nowrap;margin-right:8px;transition:all .2s;" onmouseover="this.style.background='rgba(255,255,255,0.10)';this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.4)'" onmouseout="this.style.background='transparent';this.style.color='rgba(255,255,255,0.82)';this.style.borderColor='rgba(255,255,255,0.22)'">
+                <svg width="14" height="14" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;opacity:0.85;">
+                  <path d="M45 18 L32 8" stroke="currentColor" stroke-width="3" opacity="0.6" stroke-linecap="round"/>
+                  <path d="M45 18 L45 5" stroke="currentColor" stroke-width="3" opacity="0.8" stroke-linecap="round"/>
+                  <path d="M45 18 L58 8" stroke="currentColor" stroke-width="3" opacity="0.6" stroke-linecap="round"/>
+                  <rect x="38" y="18" width="14" height="9" rx="2" fill="currentColor"/>
+                  <rect x="35" y="27" width="20" height="3" rx="1.5" fill="currentColor" opacity="0.8"/>
+                  <path d="M38 30 L34 68 L56 68 L52 30 Z" fill="currentColor" opacity="0.18" stroke="currentColor" stroke-width="2"/>
+                  <rect x="30" y="68" width="30" height="5" rx="2.5" fill="currentColor" opacity="0.9"/>
+                </svg>
+                <span>Sign Out</span>
             </a>
             <!-- Dual logo block -->
             <div class="header-logos">

@@ -126,6 +126,14 @@
             color: #475569;
             text-align: center;
         }
+        #page-footer {
+            text-align: center;
+            font-size: 11px;
+            color: #94a3b8;
+            padding: 16px 24px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 24px;
+        }
 
         /* ── Change Highlighting System ── */
         [data-since].is-new {
@@ -6160,7 +6168,15 @@
         .then(function(res) { return res.json(); })
         .then(function(json) { renderRTXData(json.rtx); })
         .catch(function() { renderRTXData(FALLBACK_RTX); });
+
+    // Page footer date
+    (function() {
+        var el = document.getElementById('page-footer-date');
+        if (el) el.textContent = new Date().toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'});
+    })();
 </script>
+
+<div id="page-footer">Sales Intelligence &bull; RTX Corporation (Collins / Pratt &amp; Whitney / Raytheon) &bull; Confidential &bull; <span id="page-footer-date"></span></div>
 
 </body>
 </html>

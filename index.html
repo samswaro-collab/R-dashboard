@@ -6059,86 +6059,107 @@
         }
     });
 
-    // Intel: Collins locations
-    new Chart(document.getElementById('chartCollins'), {
-        type: 'bar',
-        data: {
-            labels: ['Cedar Rapids IA', 'Windsor Locks CT', 'Rockford IL', 'Riverside CA', 'Spokane WA', 'Opa-Locka FL'],
-            datasets: [{
-                label: 'Est. Open Roles',
-                data: [164, 80, 35, 30, 20, 20],
-                backgroundColor: '#0ea5e9',
-                borderRadius: 5
-            }]
-        },
-        options: {
-            indexAxis: 'y',
-            responsive: true,
-            plugins: { legend: { display: false } },
-            scales: { x: { beginAtZero: true, grid: { color: '#f1f5f9' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
-        }
-    });
+    // ── Live data pipeline ─────────────────────────────────────────────────────
+    var RTX_DATA_URL = 'https://raw.githubusercontent.com/samswaro-collab/rtx-dashboard/main/data_rtx.json';
 
-    // Intel: P&W locations
-    new Chart(document.getElementById('chartPW'), {
-        type: 'bar',
-        data: {
-            labels: ['Middletown CT', 'East Hartford CT', 'Asheville NC', 'Oklahoma City OK', 'Midland GA', 'Columbus GA'],
-            datasets: [{
-                label: 'Est. Open Roles',
-                data: [183, 172, 40, 30, 25, 20],
-                backgroundColor: '#f97316',
-                borderRadius: 5
-            }]
-        },
-        options: {
-            indexAxis: 'y',
-            responsive: true,
-            plugins: { legend: { display: false } },
-            scales: { x: { beginAtZero: true, grid: { color: '#f1f5f9' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
-        }
-    });
+    var FALLBACK_RTX = {
+        collins:  { total: 827,  locations: [{city:'Cedar Rapids IA',roles:164},{city:'Windsor Locks CT',roles:80},{city:'Rockford IL',roles:35},{city:'Riverside CA',roles:30},{city:'Spokane WA',roles:20},{city:'Opa-Locka FL',roles:20}] },
+        pw:       { total: 505,  locations: [{city:'Middletown CT',roles:183},{city:'East Hartford CT',roles:172},{city:'Asheville NC',roles:40},{city:'Oklahoma City OK',roles:30},{city:'Midland GA',roles:25},{city:'Columbus GA',roles:20}] },
+        raytheon: { total: 2575, locations: [{city:'Tucson AZ',roles:800},{city:'Andover MA',roles:215},{city:'Tewksbury MA',roles:180},{city:'McKinney TX',roles:150},{city:'El Segundo CA',roles:120},{city:'Manchester NH',roles:80}] },
+        totalRoles: 3900
+    };
 
-    // Intel: Raytheon locations
-    new Chart(document.getElementById('chartRaytheon'), {
-        type: 'bar',
-        data: {
-            labels: ['Tucson AZ', 'Andover MA', 'Tewksbury MA', 'McKinney TX', 'El Segundo CA', 'Manchester NH'],
-            datasets: [{
-                label: 'Est. Open Roles',
-                data: [800, 215, 180, 150, 120, 80],
-                backgroundColor: '#ef4444',
-                borderRadius: 5
-            }]
-        },
-        options: {
-            indexAxis: 'y',
-            responsive: true,
-            plugins: { legend: { display: false } },
-            scales: { x: { beginAtZero: true, grid: { color: '#f1f5f9' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
-        }
-    });
+    var rtxCharts = {};
 
-    // Intel: RTX roles pie
-    new Chart(document.getElementById('chartRTXRoles'), {
-        type: 'doughnut',
-        data: {
-            labels: ['Raytheon (66%)', 'Collins (21%)', 'Pratt & Whitney (13%)'],
-            datasets: [{
-                data: [2575, 827, 505],
-                backgroundColor: ['#ef4444', '#0ea5e9', '#f97316'],
-                borderWidth: 2,
-                borderColor: '#fff'
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 10 } },
-                tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw.toLocaleString()} roles` } }
+    function fmtRoles(n) { return n >= 1000 ? (n/1000).toFixed(1).replace(/\.0$/,'') + 'K+' : n + '+'; }
+
+    function makeBarChart(id, labels, data, color) {
+        if (rtxCharts[id]) rtxCharts[id].destroy();
+        rtxCharts[id] = new Chart(document.getElementById(id), {
+            type: 'bar',
+            data: { labels: labels, datasets: [{ label: 'Est. Open Roles', data: data, backgroundColor: color, borderRadius: 5 }] },
+            options: {
+                indexAxis: 'y', responsive: true,
+                plugins: { legend: { display: false } },
+                scales: { x: { beginAtZero: true, grid: { color: '#f1f5f9' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
             }
-        }
-    });
+        });
+    }
+
+    function makeDoughnutChart(id, labels, data, colors) {
+        if (rtxCharts[id]) rtxCharts[id].destroy();
+        rtxCharts[id] = new Chart(document.getElementById(id), {
+            type: 'doughnut',
+            data: { labels: labels, datasets: [{ data: data, backgroundColor: colors, borderWidth: 2, borderColor: '#fff' }] },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 10 } },
+                    tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw.toLocaleString()} roles` } }
+                }
+            }
+        });
+    }
+
+    function updateSidebarBadge(selector, value) {
+        var el = document.querySelector(selector);
+        if (el) el.textContent = value;
+    }
+
+    function updateKPI(index, value) {
+        var kpis = document.querySelectorAll('.kpi-value');
+        if (kpis[index]) kpis[index].textContent = value;
+    }
+
+    function renderRTXData(d) {
+        var c = d.collins, pw = d.pw, r = d.raytheon, total = d.totalRoles || (c.total + pw.total + r.total);
+
+        // Sidebar badges
+        updateSidebarBadge('.sidebar-item:nth-child(1) .sidebar-badge', fmtRoles(total));
+        updateSidebarBadge('.sidebar-item:nth-child(2) .sidebar-badge', fmtRoles(c.total));
+        updateSidebarBadge('.sidebar-item:nth-child(3) .sidebar-badge', fmtRoles(pw.total));
+        updateSidebarBadge('.sidebar-item:nth-child(4) .sidebar-badge', fmtRoles(r.total));
+
+        // KPI card (first one = total open roles)
+        updateKPI(0, fmtRoles(total));
+
+        // Collins bar chart
+        makeBarChart('chartCollins',
+            c.locations.map(l => l.city),
+            c.locations.map(l => l.roles),
+            '#0ea5e9'
+        );
+
+        // P&W bar chart
+        makeBarChart('chartPW',
+            pw.locations.map(l => l.city),
+            pw.locations.map(l => l.roles),
+            '#f97316'
+        );
+
+        // Raytheon bar chart
+        makeBarChart('chartRaytheon',
+            r.locations.map(l => l.city),
+            r.locations.map(l => l.roles),
+            '#ef4444'
+        );
+
+        // RTX group doughnut
+        var colPct = Math.round(c.total/total*100);
+        var pwPct  = Math.round(pw.total/total*100);
+        var rPct   = 100 - colPct - pwPct;
+        makeDoughnutChart('chartRTXRoles',
+            ['Raytheon (' + rPct + '%)', 'Collins (' + colPct + '%)', 'Pratt & Whitney (' + pwPct + '%)'],
+            [r.total, c.total, pw.total],
+            ['#ef4444', '#0ea5e9', '#f97316']
+        );
+    }
+
+    // Fetch live data, fall back gracefully
+    fetch(RTX_DATA_URL + '?t=' + Date.now())
+        .then(function(res) { return res.json(); })
+        .then(function(json) { renderRTXData(json.rtx); })
+        .catch(function() { renderRTXData(FALLBACK_RTX); });
 </script>
 
 </body>

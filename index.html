@@ -789,7 +789,9 @@
             <span class="sidebar-item-text">&#128197; Industry Events</span>
         </div>
 
-        <div class="sidebar-section-label">Competitive Intel</div>
+        <div class="sidebar-section-label" style="margin-top:12px;">Financial</div>
+        <div class="sidebar-item" onclick="document.querySelectorAll('.section').forEach(s=>s.classList.remove('active')); document.getElementById('financial')?.classList.add('active')" style="padding:8px 16px;cursor:pointer;color:rgba(255,255,255,.85);font-size:12px;">💹 Financial Health</div>
+                <div class="sidebar-section-label">Competitive Intel</div>
 
         <div class="sidebar-item" onclick="switchSection('compintel')">
             <span class="sidebar-item-text">&#128202; Competitive Intel</span>
@@ -858,17 +860,7 @@
             </div>
             <!-- BEAKON Sign Out -->
             <a href="https://www.salesbeakon.com" onclick="try{localStorage.removeItem('beakon_rtx_gate');}catch(e){} try{sessionStorage.removeItem('beakon_session');}catch(e){}" style="display:flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid rgba(255,255,255,0.22);border-radius:8px;text-decoration:none;color:rgba(255,255,255,0.82);font-size:11px;font-weight:700;letter-spacing:.5px;white-space:nowrap;margin-right:8px;transition:all .2s;cursor:pointer;" onmouseover="this.style.background='rgba(255,255,255,0.10)';this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.4)'" onmouseout="this.style.background='transparent';this.style.color='rgba(255,255,255,0.82)';this.style.borderColor='rgba(255,255,255,0.22)'">
-                <svg width="16" height="16" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-                  <path d="M40 16 L24 3"  stroke="#f59e0b" stroke-width="3" opacity="0.7" stroke-linecap="round"/>
-                  <path d="M40 16 L40 0"  stroke="#f59e0b" stroke-width="3" opacity="1"   stroke-linecap="round"/>
-                  <path d="M40 16 L56 3"  stroke="#f59e0b" stroke-width="3" opacity="0.7" stroke-linecap="round"/>
-                  <rect x="33" y="16" width="14" height="9" rx="2" fill="#f59e0b"/>
-                  <rect x="30" y="24" width="20" height="3" rx="1.5" fill="#f59e0b" opacity="0.9"/>
-                  <path d="M34 27 L30 62 L50 62 L46 27 Z" fill="#f59e0b" opacity="0.25" stroke="#f59e0b" stroke-width="2"/>
-                  <path d="M33 37 L47 37" stroke="#f59e0b" stroke-width="2" opacity="0.7"/>
-                  <path d="M32 47 L48 47" stroke="#f59e0b" stroke-width="2" opacity="0.7"/>
-                  <rect x="25" y="62" width="30" height="5" rx="2.5" fill="#f59e0b" opacity="0.95"/>
-                </svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
                 <span>Sign Out</span>
             </a>
             <!-- Dual logo block -->
@@ -5328,7 +5320,7 @@
         <div style="font-size:13px;font-weight:700;color:#0a2342;margin-bottom:6px;">🤝 AWS (Raytheon SCA)</div>
         <div style="font-size:12px;color:#444;line-height:1.65;margin-bottom:8px;">Cyient as AWS Select-Tier partner delivering cloud architecture, Raytheon manufacturing data lakes, and SageMaker ML model implementation for the Dec 2025 Raytheon-AWS SCA. Cyient provides engineering services on top of the AWS infrastructure layer.</div>
         <div style="background:#f0f6ff;border-radius:6px;padding:7px 10px;font-size:11px;color:#0055a5;font-weight:600;">
-          👤 <strong>Rep / Contact:</strong> Search: 'AWS Raytheon Account Manager' or 'AWS Defense Aerospace Account Executive' on LinkedIn
+          👤 <strong>Rep / Contact:</strong> <a href="https://www.linkedin.com/search/results/people/?keywords=AWS%20Raytheon%20Account%20Manager" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;font-size:10px;color:#0a66c2;font-weight:600;text-decoration:none;background:#f0f7ff;padding:4px 9px;border-radius:4px;border:1px solid #c7dff7;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> Search on LinkedIn</a> or 'AWS Defense Aerospace Account Executive' on LinkedIn
         </div>
       </div>
 
@@ -5343,7 +5335,7 @@
         </div>
         <div style="font-size:12px;color:#444;line-height:1.65;margin-bottom:8px;">Cyient as Siemens Capital wiring harness services partner at Collins Aerospace (Cedar Rapids IA, Windsor Locks CT) and Raytheon Electronic Systems (Nashua NH). Collins avionics wiring harness design — schematic, formboard, IPC-620 documentation — is outsourceable at Cyient's India rates. DO-178C wire data package traceability is Cyient's existing strength.</div>
         <div style="background:#f0f6ff;border-radius:6px;padding:7px 10px;font-size:11px;color:#0055a5;font-weight:600;">
-          👤 <strong>Rep / Contact:</strong> Search: 'Siemens Capital Collins Aerospace Account Executive' on LinkedIn — Taylor Saul (Applied CAx) covers Siemens Capital in aerospace
+          👤 <strong>Rep / Contact:</strong> <a href="https://www.linkedin.com/search/results/people/?keywords=Siemens%20Capital%20Collins%20Aerospace%20Account%20Executive" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;font-size:10px;color:#0a66c2;font-weight:600;text-decoration:none;background:#f0f7ff;padding:4px 9px;border-radius:4px;border:1px solid #c7dff7;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> Search on LinkedIn</a> — Taylor Saul (Applied CAx) covers Siemens Capital in aerospace
         </div>
       </div>
 <!-- ── END TECHNOLOGY ECOSYSTEM ── -->
@@ -6507,6 +6499,68 @@
         if (el) el.textContent = new Date().toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'});
     })();
 </script>
+
+<!-- ═══ FINANCIAL HEALTH ═══ -->
+<div id="financial" class="section">
+  <div class="section-title" style="font-size:16px;font-weight:700;margin-bottom:16px;">💹 Financial Health — RTX (Raytheon Technologies)</div>
+  <div style="background:linear-gradient(135deg,#0a2342,#003087);color:white;border-radius:10px;padding:15px 20px;margin-bottom:22px;">
+    <div style="font-size:13px;font-weight:700;margin-bottom:6px;">📊 8-Quarter Analysis — RTX (NYSE)</div>
+    <div style="font-size:11.5px;opacity:.93;line-height:1.7;">RTX is navigating GTF engine powder metal inspections (Pratt & Whitney), an avionics modernization supercycle at Collins Aerospace, and defense program growth. Operating margins are under pressure but investment in engineering services is accelerating. The Collins avionics retrofit wave is the #1 Cyient entry point.</div>
+  </div>
+
+  <div style="background:white;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,0.08);margin-bottom:16px;">
+    <div style="font-size:13px;font-weight:700;margin-bottom:12px;color:#0a2342;">📈 Revenue, Margin &amp; R&amp;D Trend (Last 8 Quarters)</div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:11.5px;">
+        <thead>
+          <tr style="background:#0a2342;color:white;">
+            <th style="padding:8px 12px;text-align:left;">Quarter</th>
+            <th style="padding:8px 12px;text-align:right;">Revenue</th>
+            <th style="padding:8px 12px;text-align:right;">Op. Margin</th>
+            <th style="padding:8px 12px;text-align:right;">R&amp;D Spend</th>
+            <th style="padding:8px 12px;text-align:left;">Key Signal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:white;"><td style="padding:7px 12px;border-bottom:1px solid #eee;">Q1 2024</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">$19.3B</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">9.8%</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">$1.82B</td><td style="padding:7px 12px;border-bottom:1px solid #eee;">GTF powder metal inspection program: 600+ engines inspected; significant shop capacity consumed</td></tr>
+          <tr style="background:#f9fafb;"><td style="padding:7px 12px;border-bottom:1px solid #eee;">Q2 2024</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">$19.7B</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">9.5%</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">$1.87B</td><td style="padding:7px 12px;border-bottom:1px solid #eee;">Collins Aerospace King Air retrofit contract announced; avionics modernization accelerating</td></tr>
+          <tr style="background:white;"><td style="padding:7px 12px;border-bottom:1px solid #eee;">Q3 2024</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">$20.1B</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">9.3%</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">$1.91B</td><td style="padding:7px 12px;border-bottom:1px solid #eee;">FAA multi-core processor approval (Sept 2024); GTF inspection pace accelerating</td></tr>
+          <tr style="background:#f9fafb;"><td style="padding:7px 12px;border-bottom:1px solid #eee;">Q4 2024</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">$21.6B</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">10.1%</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">$1.95B</td><td style="padding:7px 12px;border-bottom:1px solid #eee;">Collins Black Hawk $80M avionics retrofit contract (Dec 2024); strong Q4 close</td></tr>
+          <tr style="background:white;"><td style="padding:7px 12px;border-bottom:1px solid #eee;">Q1 2025</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">$20.3B</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">9.6%</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">$1.89B</td><td style="padding:7px 12px;border-bottom:1px solid #eee;">GTF inspections: ~1,200 of 3,000 engines completed; long-tail capacity constraint</td></tr>
+          <tr style="background:#f9fafb;"><td style="padding:7px 12px;border-bottom:1px solid #eee;">Q2 2025</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">$21.8B</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">10.2%</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">$1.94B</td><td style="padding:7px 12px;border-bottom:1px solid #eee;">Defense orders +15%; Collins commercial aerospace strong; Pratt recovery on track</td></tr>
+          <tr style="background:white;"><td style="padding:7px 12px;border-bottom:1px solid #eee;">Q3 2025</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">$22.5B</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">10.5%</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">$1.99B</td><td style="padding:7px 12px;border-bottom:1px solid #eee;">Collins avionics modernization pipeline: $4B+ potential retrofit market identified</td></tr>
+          <tr style="background:#f9fafb;"><td style="padding:7px 12px;border-bottom:1px solid #eee;">Q4 2025</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">$23.2B</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">10.8%</td><td style="padding:7px 12px;text-align:right;border-bottom:1px solid #eee;">$2.04B</td><td style="padding:7px 12px;border-bottom:1px solid #eee;">RTX full-year revenue +9.7% YoY; strongest margin performance since merger</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+    <div style="background:white;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+      <div style="font-size:13px;font-weight:700;margin-bottom:12px;color:#0a2342;">⚠️ Margin Pressures &amp; Stress Signals</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="padding:10px;background:#fff5f5;border-left:3px solid #c62828;border-radius:4px;"><div style="font-weight:700;color:#c62828;margin-bottom:4px;font-size:12px;">🔴 GTF Engine Powder Metal Crisis</div><div style="color:#555;line-height:1.6;font-size:11.5px;">3,000 Pratt & Whitney GTF engines need inspection by 2026. Shop capacity consumed. Airlines grounding aircraft. P&W needs engineering support for accelerated inspection documentation.</div></div>
+        <div style="padding:10px;background:#fff8e1;border-left:3px solid #f57f17;border-radius:4px;"><div style="font-weight:700;color:#f57f17;margin-bottom:4px;font-size:12px;">🟡 Collins Avionics Modernization Debt</div><div style="color:#555;line-height:1.6;font-size:11.5px;">Massive backlog of legacy avionics (King Air, Black Hawk, regional jets) requiring FAA-certified retrofits. Collins cannot staff fast enough internally.</div></div>
+        <div style="padding:10px;background:#fff8e1;border-left:3px solid #f57f17;border-radius:4px;"><div style="font-weight:700;color:#f57f17;margin-bottom:4px;font-size:12px;">🟡 Defense Program Execution</div><div style="color:#555;line-height:1.6;font-size:11.5px;">Multiple fixed-price defense contracts with cost exposure. Engineering efficiency improvements are a C-suite priority at Raytheon Missiles & Defense.</div></div>
+        <div style="padding:10px;background:#e8f5e9;border-left:3px solid #2e7d32;border-radius:4px;"><div style="font-weight:700;color:#2e7d32;margin-bottom:4px;font-size:12px;">🟢 $4B+ Avionics Retrofit Market</div><div style="color:#555;line-height:1.6;font-size:11.5px;">Collins has identified $4B+ retrofit opportunity. This is a multi-year engineering services engagement window. Cyient's avionics certification pedigree is directly relevant.</div></div>
+      </div>
+    </div>
+    <div style="background:white;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+      <div style="font-size:13px;font-weight:700;margin-bottom:12px;color:#0a2342;">🎯 Cyient Opportunity Signals</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="padding:10px;background:#e8f0fe;border-left:3px solid #003087;border-radius:4px;"><div style="font-weight:700;color:#003087;margin-bottom:4px;font-size:12px;">💡 Collins Avionics Retrofit Program — $5–15M</div><div style="color:#555;line-height:1.6;font-size:11.5px;">King Air retrofit, Black Hawk retrofit, regional jet modernization. FAA-certified avionics engineering. DO-178C, RTCA DO-254 expertise required. Entry: Collins VP Avionics Programs.</div></div>
+        <div style="padding:10px;background:#e8f0fe;border-left:3px solid #003087;border-radius:4px;"><div style="font-weight:700;color:#003087;margin-bottom:4px;font-size:12px;">💡 GTF Inspection Documentation</div><div style="color:#555;line-height:1.6;font-size:11.5px;">1,800 remaining GTF engines need inspection docs, technical instructions, shop manual updates. Pratt & Whitney engineering support contract. Entry: P&W VP MRO Engineering.</div></div>
+        <div style="padding:10px;background:#e8f0fe;border-left:3px solid #003087;border-radius:4px;"><div style="font-weight:700;color:#003087;margin-bottom:4px;font-size:12px;">💡 Defense Engineering Cost Reduction</div><div style="color:#555;line-height:1.6;font-size:11.5px;">Raytheon Missiles & Defense fixed-price contracts need engineering efficiency. Systems engineering, requirements management, test documentation from Hyderabad CoE.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:12px 16px;background:#f0f4ff;border-radius:8px;font-size:11px;color:#555;line-height:1.6;">
+    <strong>Data sources:</strong> SEC 10-K/10-Q filings, company investor relations, MacroTrends, Yahoo Finance, Aviation Week, FlightGlobal, AIN Online. Last updated: April 2026.
+  </div>
+</div>
+<!-- END FINANCIAL SECTION -->
+
 
 <div id="page-footer">Sales Intelligence &bull; RTX Corporation (Collins / Pratt &amp; Whitney / Raytheon) &bull; Confidential &bull; <span id="page-footer-date"></span></div>
 
